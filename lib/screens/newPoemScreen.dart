@@ -5,6 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class NewPoemScreen extends StatefulWidget {
+  const NewPoemScreen({super.key});
+
   @override
   _NewPoemScreenState createState() => _NewPoemScreenState();
 }
@@ -49,7 +51,7 @@ class _NewPoemScreenState extends State<NewPoemScreen> {
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
+      navigationBar: const CupertinoNavigationBar(
         middle: Text('Post New Poem'),
       ),
       child: SafeArea(
@@ -76,7 +78,7 @@ class _NewPoemScreenState extends State<NewPoemScreen> {
                   // Close the modal after posting the poem
                   Navigator.of(context).pop();
                 },
-                child: Text('Post Poem'),
+                child: const Text('Post Poem'),
               ),
             ],
           ),

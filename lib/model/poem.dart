@@ -1,32 +1,32 @@
-
-import 'package:quillit_frontend/model/user.dart';
-
 class Poem{
   final String id;
   final String title;
   final String content;
-  final User author;
+  final String authorId;
   final List<String> likedBy;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final String createdAt;
+  final String updatedAt;
 
   Poem({
     required this.id,
     required this.title,
     required this.content,
-    required this.author,
+    required this.authorId,
     required this.likedBy,
     required this.createdAt,
     required this.updatedAt
   });
 
   factory Poem.fromJson(Map<String, dynamic> json) {
+    final List<dynamic> likedByList = json['likedBy'];
+    final List<String> likedBy = likedByList.map((like) => like.toString()).toList();  
+
     return Poem(
       id: json['_id'],
       title: json['title'],
       content: json['content'],
-      author: json['author'],
-      likedBy: json['likedBy'],
+      authorId: json['author'],
+      likedBy: likedBy,
       createdAt: json['createdAt'],
       updatedAt: json['updatedAt'],
     );
@@ -36,8 +36,8 @@ class Poem{
     return {
       '_id': id,
       'title': title,
-      'content': author,
-      'author': author,
+      'content': authorId,
+      'author': authorId,
       'likedBy': likedBy,
       'createdAt': createdAt,
       'updatedAt': updatedAt,

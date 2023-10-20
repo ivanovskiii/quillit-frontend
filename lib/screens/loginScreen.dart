@@ -52,7 +52,7 @@ class _loginScreenState extends State<LoginScreen> {
         print('Login successful');
         
         // Navigate to the main page after successful login
-        Navigator.of(context).pushReplacement(CupertinoPageRoute(builder: (context) => HomeScreen()));
+        Navigator.of(context).pushReplacement(CupertinoPageRoute(builder: (context) => const HomeScreen()));
       } else {
         // Handle login error, such as showing an error message
         print('Login failed');
